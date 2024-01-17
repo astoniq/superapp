@@ -14,7 +14,6 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.astoniq.superapp.R
 import com.astoniq.superapp.core.common.theme.DarkGreen
 
 @Composable

@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.astoniq.superapp"
+    namespace = "com.astoniq.superapp.core.common"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

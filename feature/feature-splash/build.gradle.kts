@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.astoniq.superapp"
+    namespace = "com.astoniq.superapp.feature.splash"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
