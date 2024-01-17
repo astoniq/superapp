@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "Superapp"
 include(":app")
 include(":core:core-common")
+include(":feature:feature-splash")

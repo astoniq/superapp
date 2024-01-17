@@ -1,12 +1,11 @@
-import com.astoniq.superapp.buildsrc.Configuration
 import com.astoniq.superapp.buildsrc.Deps
 import com.astoniq.superapp.buildsrc.Version
+import com.astoniq.superapp.buildsrc.Configuration
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -14,22 +13,18 @@ android {
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        applicationId = Configuration.applicationId
         minSdk = Configuration.minSdk
-        targetSdk = Configuration.targetSdk
-        versionCode = Configuration.versionCode
-        versionName = Configuration.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -45,38 +40,17 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Version.compose_version
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
-    implementation(project(":core:core-common"))
-    implementation(project(":feature:feature-splash"))
 
-    with(Deps.AndroidX.Core) {
-        implementation(coreKtx)
-    }
+    implementation(project(":core:core-common"))
 
     with(Deps.AndroidX.Compose) {
         implementation(ui)
         implementation(material)
+        implementation(toolingPreview)
         implementation(runtime)
-    }
-
-    implementation(Deps.AndroidX.Activity.compose)
-
-    with(Deps.Google.DaggerHilt) {
-        implementation(android)
-        kapt(compiler)
-    }
-
-    with(Deps.Org.Jetbrains.Kotlinx) {
-        implementation(coroutineCore)
-        implementation(coroutineAndroid)
-        implementation(coroutinePlayServices)
     }
 
     with(Deps.Google.DaggerHilt) {
