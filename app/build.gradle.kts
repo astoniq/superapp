@@ -55,6 +55,8 @@ android {
 dependencies {
     implementation(project(":core:core-common"))
     implementation(project(":feature:feature-splash"))
+    implementation(project(":feature:feature-portal"))
+    implementation(project(":feature:feature-hub"))
 
     with(Deps.AndroidX.Core) {
         implementation(coreKtx)
@@ -87,5 +89,18 @@ dependencies {
     with(Deps.AndroidX.Hilt) {
         implementation(navigationCompose)
         kapt(compiler)
+    }
+
+    with(Deps.AndroidX.AppCompat) {
+        implementation(appcompat)
+    }
+
+    with(Deps.AndroidX.ConstraintLayout) {
+        implementation(layout)
+        implementation(compose)
+    }
+
+    with(Deps.AndroidX.Navigation) {
+        implementation(compose)
     }
 }

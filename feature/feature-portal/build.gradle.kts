@@ -5,10 +5,11 @@ import com.astoniq.superapp.buildsrc.Configuration
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.astoniq.superapp.core.common"
+    namespace = "com.astoniq.superapp.feature.portal"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
@@ -42,10 +43,31 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":core:core-common"))
+
     with(Deps.AndroidX.Compose) {
         implementation(ui)
         implementation(material)
         implementation(toolingPreview)
         implementation(runtime)
+    }
+
+    with(Deps.Google.DaggerHilt) {
+        implementation(android)
+        kapt(compiler)
+    }
+
+    with(Deps.AndroidX.Hilt) {
+        implementation(navigationCompose)
+        kapt(compiler)
+    }
+
+    with(Deps.Capacitor) {
+        api(core)
+    }
+
+    with(Deps.AndroidX.AppCompat) {
+        implementation(appcompat)
     }
 }
