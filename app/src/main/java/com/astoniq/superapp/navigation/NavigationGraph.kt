@@ -1,12 +1,15 @@
 package com.astoniq.superapp.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.astoniq.superapp.core.common.navigation.Screens
+import com.astoniq.superapp.feature.app.AppScreen
 import com.astoniq.superapp.feature.hub.HubScreen
 import com.astoniq.superapp.feature.portal.Portal
 import com.astoniq.superapp.feature.portal.PortalScreen
@@ -24,7 +27,13 @@ fun NavigationGraph(navHostController: NavHostController) {
         }
 
         composable(route = Screens.ExpenseInsight.route) {
-            PortalScreen(Portal("test"))
+           val backHandlerEnabled = remember {
+               mutableStateOf(true)
+           }
+            AppScreen(
+                navController = navHostController,
+                url = "file:///android_asset/index.html",
+                backHandlerEnabled = backHandlerEnabled)
         }
 
         composable(

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <script>
+        function openSplash () {
+           bridge.send(JSON.stringify({"type": "open", id: "1"}));
+        }
+
+          function show () {
+           bridge.send(JSON.stringify({"type": "show", id: "1", "payload": "123"}));
+        }
+
+        function send(json) {
+            document.getElementById('show').innerHTML = JSON.stringify(json);
+        }
+    </script>
+    <title>Example Web App</title>
+</head>
+<body>
+<h1 style="text-align:center;">Internal Linked Page</h1>
+<div>I'm another HTML file in the assets folder!</div>
+<div style="margin-top: 40px;">
+    <h3>Demonstrates navigating to a native Android screen built using a Composable.</h3>
+    <h3>The navigation will put this as the next view in the back stack.</h3>
+    <button
+            id="openSplash"
+            type="button"
+            onclick="openSplash()">Open Splash View</button>
+
+    <button
+            id="show"
+            type="button"
+            onclick="show()">Open Splash View</button>
+</div>
+</body>
