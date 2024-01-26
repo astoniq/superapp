@@ -40,7 +40,7 @@ fun appWebView(
     }
 
     // apply javascript interface from native
-    expose("bridge", bridge)
+    expose("AndroidBridge", bridge)
 
     if (savedInstanceState !== null) {
         restoreState(savedInstanceState)
@@ -69,7 +69,7 @@ class AppWebView(context: Context) : WebView(context), AppExecutor {
         addJavascriptInterface(object {
             @JavascriptInterface
             @Suppress("unused")
-            fun send(json: String) {
+            fun postMessage(json: String) {
                 try {
                     val runnableCode = Runnable { bridge.receive(json) }
                     handler.post(runnableCode)

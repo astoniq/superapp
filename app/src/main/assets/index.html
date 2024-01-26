@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+    <script type="text/javascript" src="browser.min.js"></script>
     <script>
         function openSplash () {
-           bridge.send(JSON.stringify({"type": "open", id: "1"}));
+           bridge.send({"method": "open"});
         }
 
           function show () {
-           bridge.send(JSON.stringify({"type": "show", id: "1", "payload": "123"}));
-        }
-
-        function send(json) {
-            document.getElementById('show').innerHTML = JSON.stringify(json);
+           bridge.send({"method": "show", "payload": "123"})
+           .then(value => document.getElementById('show').innerHTML = value);
         }
     </script>
     <title>Example Web App</title>
