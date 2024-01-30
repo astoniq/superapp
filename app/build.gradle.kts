@@ -58,6 +58,7 @@ dependencies {
     implementation(project(":feature:feature-portal"))
     implementation(project(":feature:feature-hub"))
     implementation(project(":feature:feature-app"))
+    implementation(project(":feature:feature-login"))
 
     with(Deps.AndroidX.Core) {
         implementation(coreKtx)

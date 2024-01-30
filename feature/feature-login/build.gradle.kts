@@ -6,10 +6,11 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
-    namespace = "com.astoniq.superapp.feature.hub"
+    namespace = "com.astoniq.superapp.feature.login"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
@@ -45,7 +46,6 @@ android {
 dependencies {
 
     implementation(project(":core:core-common"))
-    implementation(project(":feature:feature-login"))
 
     with(Deps.AndroidX.Compose) {
         implementation(ui)
