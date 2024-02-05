@@ -17,7 +17,7 @@
 
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".SuperappActivity"
             android:exported="true"
             android:theme="@style/Theme.Supperapp">
             <intent-filter>

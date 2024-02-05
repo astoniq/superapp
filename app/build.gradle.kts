@@ -54,6 +54,8 @@ android {
 
 dependencies {
     implementation(project(":core:core-common"))
+    implementation(project(":core:core-data"))
+    implementation(project(":core:core-model"))
     implementation(project(":feature:feature-splash"))
     implementation(project(":feature:feature-portal"))
     implementation(project(":feature:feature-hub"))
@@ -62,12 +64,18 @@ dependencies {
 
     with(Deps.AndroidX.Core) {
         implementation(coreKtx)
+        implementation(splashScreen)
     }
 
     with(Deps.AndroidX.Compose) {
         implementation(ui)
         implementation(material)
         implementation(runtime)
+    }
+
+    with(Deps.AndroidX.Lifecycle) {
+        implementation(viewModelCompose)
+        implementation(runtimeCompose)
     }
 
     implementation(Deps.AndroidX.Activity.compose)

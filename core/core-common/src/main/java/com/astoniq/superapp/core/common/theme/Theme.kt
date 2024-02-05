@@ -18,7 +18,7 @@ private val LightColorPalette = darkColors(
 )
 
 @Composable
-fun SupperappTheme(
+fun SuperappTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

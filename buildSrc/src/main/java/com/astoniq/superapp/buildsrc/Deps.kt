@@ -28,6 +28,7 @@ object Deps {
             const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle"
             const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle"
             const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:$androidx_lifecycle"
+            const val runtimeCompose = "androidx.lifecycle:lifecycle-runtime-compose:$androidx_lifecycle"
         }
         object Activity {
             const val compose = "androidx.activity:activity-compose:1.7.0"

@@ -18,6 +18,9 @@ dependencyResolutionManagement {
 rootProject.name = "Superapp"
 include(":app")
 include(":core:core-common")
+include(":core:core-domain")
+include(":core:core-data")
+include(":core:core-model")
 include(":feature:feature-splash")
 include(":feature:feature-portal")
 include(":feature:feature-hub")
